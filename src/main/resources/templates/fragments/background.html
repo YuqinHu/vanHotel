@@ -1,0 +1,152 @@
+<div th:fragment="page_heading">
+    <div class="page-heading">
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-10">
+                <div class="top-text header-text">
+                <h2 th:text="${heading}">Heading</h2>
+                <h4 th:text="${subHeading}"></h4>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="button_link">
+    <div class="align-self-center" style="padding:0px 200px;">
+        <div class="main-white-button">
+            <a th:href="@{/home}">
+                <i class="fa fa-eye"></i>
+                Go To Home Page
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="main-banner" th:fragment="search_bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="top-text header-text">
+                    <h6 style="margin-top: 100px;">Dedicate for GAA Quarantine Hotels</h6>
+                    <h2>Find Your GAA Quarantine Hotel</h2>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <form th:action="@{/home/customer}" method="get" id="search-form" name="gs" role="search">
+                    <div class="row">
+                        <div class="col-lg-4 align-self-center">
+                            <fieldset>
+                                <select name="area" class="form-select" aria-label="Area">
+                                    <option value="YVR" selected>Vancouver YVR</option>
+                                </select>
+                            </fieldset>
+                        </div>
+                        <div class="col-lg-4 align-self-center">
+                            <fieldset>
+                                <select name="star" class="form-select" aria-label="Hotel Star Level" >
+                                    <option selected>Star Level</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="0">All</option>
+                                </select>
+                            </fieldset>
+                        </div>
+                        <div class="col-lg-4">
+                            <fieldset>
+                                <button type="submit" class="main-button"><i class="fa fa-search"></i> Search Now</button>
+                            </fieldset>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="popular-categories" th:fragment="welcome_info">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading">
+                    <h2>Welcome to VanHotel</h2>
+                    <h6>Know your Use Cases</h6>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="naccs">
+                    <div class="grid">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="menu">
+                                    <div class="first-thumb active">
+                                        <div class="thumb">
+                                            <span class="icon"><img th:src="@{/assets/images/search-icon-04.png}" alt=""></span>
+                                            Customer
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="thumb">
+                                            <span class="icon"><img th:src="@{/assets/images/search-icon-01.png}" alt=""></span>
+                                            Hotel Manager
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8 align-self-center">
+                                <ul class="nacc">
+                                    <li class="active">
+                                        <div>
+                                            <div class="thumb">
+                                                <div class="row">
+                                                    <div class="col-lg-6 align-self-center">
+                                                        <div class="left-text">
+                                                            <h4>Find Your Ideal GAA Hotel</h4>
+                                                            <p>You can review all the GAA Hotels in Vancouver, including the hotel's address, price, room details, and ...</p>
+                                                            <div class="main-white-button"><a th:href="@{/register}"><i class="fa fa-eye"></i> Register as a Customer</a></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 align-self-center">
+                                                        <div class="right-image">
+                                                            <img th:src="@{/assets/images/customer_avatar_default.jpg}" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div class="thumb">
+                                                <div class="row">
+                                                    <div class="col-lg-6 align-self-center">
+                                                        <div class="left-text">
+                                                            <h4>Post Your Hotel information on VanHotel</h4>
+                                                            <p>As a hotel manager, you can post your hotel information on our website for free!</p>
+                                                            <div class="main-white-button"><a th:href="@{/register}"><i class="fa fa-eye"></i>Register as a Hotel manager</a></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 align-self-center">
+                                                        <div class="right-image">
+                                                            <img th:src="@{/assets/images/hotel_avatar_default.jpg}" alt="Foods on the table">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

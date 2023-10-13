@@ -1,0 +1,122 @@
+<div th:fragment="hotel_item">
+    <div class="col-lg-12">
+        <div class="listing-item">
+            <div class="left-image" style="width:400px">
+                <img th:src="(${hotel.avatar} == null) ? @{/assets/images/hotel_avatar_default.jpg}: ${hotel.avatar}" width="100%">
+            </div>
+            <div class="right-content align-self-center">
+                <h2 th:text="${hotel.name}"></h2>
+                <h5 th:text="${hotel.address} + ', ' + ${hotel.postcode}"></h5>
+                
+                <ul class="rate">
+                    <li th:each="i: ${#numbers.sequence(1, hotel.star)}">
+                        <i class="fa fa-star-o"></i>
+                    </li>
+                    <li>Stars</li>
+                </ul>
+                <br>
+                <br>
+                <span class="details">Description: <em th:text="${hotel.description}"></em></span>
+                <div class="main-white-button">
+                    <a th:href="@{/hotels/{id}(id=${hotel.id})}"><i class="fa fa-eye"></i> More Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="room_item">
+    <div class="col-lg-12">
+        <div class="listing-item">
+                <div class="left-image" style="width:600px">
+                <img th:src="(${room.avatar} == null) ? @{/assets/images/room_avatar_default.jpg}: ${room.avatar}" width="100%">
+            </div>
+            <div class="right-content align-self-center">
+                <h2 th:text="${room.name}"></h2>
+                <span class="price">
+                    <div class="icon">
+                        <img th:src="@{/assets/images/listing-icon-01.png}" alt="">
+                    </div>
+                    <span th:text="'Price: ' + ${room.price} + ' CAD'" />
+                </span>
+                <span class="details">
+                    <em th:text="'Size: ' + ${room.size} + 'sq meter'"></em>
+                </span>
+                <ul class="info">
+                    <li>
+                        <img th:src="@{/assets/images/listing-icon-02.png}" alt="">
+                        <span th:text="${room.beds} + ' Bedrooms'" />
+                    </li>
+                    <li>
+                        <img th:src="@{/assets/images/search-icon-01.png}" alt="">
+                        <span th:text="'Maximum ' + ${room.people} + ' People'" />
+                    </li>
+                </ul>
+                <br>
+                <br>
+                <span class="details">Details: <em th:text="${room.details}"></em></span>
+                <!--function button-->
+                <div th:if="${isRoomOwner} == true">
+                    <div class="main-white-button">
+                        <a th:href="@{/rooms/{id}/delete(id=${room.id})}"><i class="fa fa-eye"></i> Delete Room</a>
+                    </div>
+                </div>
+                <div th:if="${isRoomOwner == null || isOwner == false}">
+                    <div class="main-white-button">
+                        <a><i class="fa fa-eye"></i> TODO: Check Availability</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="user_item">
+    <a th:href="@{/users/{id}(id = ${user.id})}">
+        <div class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="row w-100 justify-content-between">
+                <h5 class="mb-1" th:text="${user.email}">List group item heading</h5>
+                <div th:each="role : ${user.roles}">
+                    <small th:text="${role.name}"></small>
+                </div>
+            </div>
+            <h6 class="mb-1" th:text="'Full Name: ' + ${user.FirstName} + ' ' + ${user.lastName}"></h6>
+            
+            <small th:text="'Password(After Encyption): ' + ${user.password}"></small>
+        </div>
+    </a>
+</div>
+
+<div th:fragment="user_card">
+    <div class="card" style="width: 100%;">
+        <img class="card-img-top" th:src="(${user.avatar} == null) ? @{/assets/images/customer_avatar_default.jpg}: ${user.avatar}" alt="Card image cap" height="400px">
+        <div class="card-body">
+            <h3>User Details</h3>
+            <br>
+            <h5 class="card-title" th:text="'Email address: ' + ${user.email}"></h5>
+            <br> <br>
+            <h6 class="card-text" th:text="'Full name: ' + ${user.firstName} + ' ' + ${user.lastName}"></h6>
+        </div>
+    </div>
+</div>
+
+
+<div th:fragment="comment_item">
+<!--    <a th:href="@{/comments/{id}(id = ${comment.id})}">-->
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="row w-100 justify-content-between">
+            <h3 class="mb-1" th:text="${comment.author}">List group item heading</h3>
+        </div>
+        <h6 class="mb-1" th:text="'Creation Time: ' + ${comment.createTime}"></h6>
+        <br>
+        <p th:text="${comment.content}"></p>
+        <!--function button-->
+        <div th:if="${isCommentOwner} == true">
+            <div class="main-white-button">
+                <a th:href="@{/comments/{id}/delete(id=${comment.id})}"><i class="fa fa-eye"></i> Delete Comment</a>
+            </div>
+        </div>
+    </div>
+<!--    </a>-->
+</div>

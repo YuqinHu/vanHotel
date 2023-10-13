@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>    
+    <title>VanHotel</title>
+    <!-- 
+      Reference HTML Template: https://templatemo.com/tm-564-plot-listing 
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" th:href="@{/assets/css/fontawesome.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/templatemo-plot-listing.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/animated.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/owl.css}">
+  
+    <!-- Scripts -->
+    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/assets/js/owl-carousel.js}"></script>
+    <script th:src="@{/assets/js/animation.js}"></script>
+    <script th:src="@{/assets/js/imagesloaded.js}"></script>
+    <script th:src="@{/assets/js/custom.js}"></script>
+
+</head>
+
+<body>
+    <div class="container text-center">
+        <div>
+            <h1>Adding Hotel Information - VanHotel</h1>
+        </div>
+        <form th:action="@{/hotels/create}" th:object="${hotel}" method="post" style="max-width: 600px; margin: 0 auto;">
+            <div class="m-3">
+
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">Name: </label>
+                    <div class="col-8">
+                        <input type="text" th:field="*{name}" class="form-control" required minlength="2" maxlength="128" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">Star: </label>
+                    <div class="col-8">
+                        <select th:field="*{star}" class="form-control">
+                            <option th:value="1">1</option>
+                            <option th:value="2">2</option>
+                            <option th:value="3" selected>3</option>
+                            <option th:value="4">4</option>
+                            <option th:value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">Address: </label>
+                    <div class="col-8">
+                        <input type="text" th:field="*{address}" class="form-control" required minlength="1" maxlength="100" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">Postcode: </label>
+                    <div class="col-8">
+                        <input type="text" th:field="*{postcode}" class="form-control" required minlength="1" maxlength="20" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">Phone: </label>
+                    <div class="col-8">
+                        <input type="text" th:field="*{phone}" class="form-control" required minlength="1" maxlength="32" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">Avatar URL (Optional): </label>
+                    <div class="col-8">
+                        <input type="text" th:field="*{avatar}" class="form-control" maxlength="256" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">Description: </label>
+                    <div class="col-8">
+                        <textarea th:field="*{description}" class="form-control" required rows="4"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">Quarantine: </label>
+                    <div class="col-8">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" th:field="*{quarantine}" id="gridCheck1">
+                            <label class="form-check-label" for="gridCheck1">
+                                Has GAA Rooms
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

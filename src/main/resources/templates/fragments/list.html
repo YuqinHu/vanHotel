@@ -1,0 +1,112 @@
+<div th:fragment="hotel_list">
+    <div class="recent-listing">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading">
+                    <h2 th:text="${listHeading}"></h2>
+                    <form th:action="${searchURL}" method="get" style="max-width: 600px; margin: 0 auto;">
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-lg-4" for="starFilter">Filter by Star</label>
+                                <select class="form-control col-lg-8" name="star" id="starFilter" >
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="item">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div th:each="hotel: ${hotels}">
+                                <div th:replace="fragments/item :: hotel_item"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="room_list">
+    <div class="recent-listing">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading">
+                    <h2 th:text="${listHeading}"></h2>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="item">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div th:each="room: ${rooms}">
+                                <div th:replace="fragments/item :: room_item"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popular-categories" th:fragment="user_list">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="section-heading">
+                <h2 th:text="${listHeading}"></h2>
+                <form th:action="${searchURL}" method="get" style="max-width: 600px; margin: 0 auto;">
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="col-lg-4" for="userTypeFilter">Filter by User Type</label>
+                            <select class="form-control col-lg-8" name="userType" id="userTypeFilter" >
+                                <option value="ALL">All</option>
+                                <option value="USER">Customer</option>
+                                <option value="HOTEL">Hotel Manager</option>
+                                <option value="ADMIN">Admin</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin: 0 50px;">
+        <div class="col-lg-12">
+            <div class="list-group">
+                <div th:each="user : ${users}">
+                    <div th:replace="fragments/item :: user_item"></div>
+                </div>        
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popular-categories" th:fragment="comment_list">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="section-heading">
+                <h2 th:text="${listHeading}"></h2>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin: 0 50px;">
+        <div class="col-lg-12">
+            <div class="list-group">
+                <div th:each="comment : ${comments}">
+                    <div th:replace="fragments/item :: comment_item"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

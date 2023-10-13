@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+        <div th:fragment="my_header">
+            <!-- ***** Preloader Start ***** -->
+            <div id="js-preloader" class="js-preloader">
+                <div class="preloader-inner">
+                <span class="dot"></span>
+                <div class="dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                </div>
+            </div>
+            <!-- ***** Preloader End ***** -->
+
+            <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+            
+                <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a th:href="@{/}" class="logo"></a>
+                        <!-- ***** Logo End ***** -->
+
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                        <li><a th:href="@{/home}">Home</a></li>
+                        <li><a th:href="@{/about}">About</a></li>
+                        <li><a th:href="@{/logout}">Logout</a></li>
+                        <li>
+                            <div class="main-white-button">
+                                <a th:href="@{/login}">
+                                    <i class="fa fa-plus"></i> 
+                                    Sign In
+                                </a>
+                            </div>
+                        </li> 
+                        </ul>        
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                    </div>
+                </div>
+                </div>
+            </header>
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>All Hotels Admin Page</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    header {
+        background-color: white;
+        padding: 30px;
+        text-align: center;
+        font-size: 35px;
+        color: rgb(68, 83, 216);
+    }
+
+    article {
+        float: left;
+        padding: 20px;
+        width: 70%;
+        background-color: white;
+        height: 60%;
+
+    }
+
+
+    section::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    footer {
+        background-color: #777;
+        padding: 10px;
+        text-align: center;
+        color: white;
+    }
+
+    @media (max-width: 600px) {
+
+        nav,
+        article {
+            width: 100%;
+            height: auto;
+        }
+    }
+</style>
+</head>
+
+<body>
+    <header>
+        <h2>All Hotel-list Adminstration page</h2>
+    </header>
+
+    <section>
+        <article>
+
+            <p>List of Hotel</p>
+            <p th:text="'Show all hotels :'"></p>
+            <div>
+                <table>
+                    <style>
+                        table,
+                        td,
+                        th {
+                            border: 1px solid rgb(31, 27, 27);
+                            border-collapse: collapse;
+                        }
+                    </style>
+                    <tr style="background-color: rgb(11, 15, 15);">
+                        <th style="color: aliceblue;">HotelID</th>
+                        <th style="color: aliceblue;">Name</th>
+                        <th style="color: aliceblue;">Star</th>
+                        <th style="color: aliceblue;">Price</th>
+                        <th style="color: aliceblue;">Operation</th>
+                    </tr>
+                    <tr style="background-color: azure;" th:each="record: ${records}">
+                        <td th:text="${record.id}"></td>
+                        <td th:text="${record.name}"></td>
+                        <td th:text="${record.star}"></td>
+                        <td th:text="${record.price}"></td>
+                        <td>
+                            <!--<a th:href="@{/hotels/delete/}+ ${record.id}">
+                                <p>Delete</p>
+                            </a>-->
+                            <a th:href="@{/hotels/{id}(id=${record.id})}">
+                                <button>Details</button>
+                            </a>
+                            <a th:href="@{/hotels/delete/{id}(id=${record.id})}">
+                                <button>Delete</button>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <li>
+                <a th:href="@{/hotel/register_hotel}">Add new Hotel</a>
+            </li>
+            <li>
+                <a th:href="@{/admin/users}">All Users List Page</a>
+            </li>
+            <li>
+                <a th:href="@{/admin/user}">User Homapage</a>
+            </li>
+        </article>
+    </section>
+
+    <footer>
+        <a th:href="@{/logout}">logout</a>
+    </footer>
+
+</body>
+
+</html>

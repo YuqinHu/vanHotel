@@ -1,0 +1,137 @@
+<head>    
+    <title>VanHotel</title>
+    <!-- 
+      Reference HTML Template: https://templatemo.com/tm-564-plot-listing 
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" th:href="@{/assets/css/fontawesome.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/templatemo-plot-listing.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/animated.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/owl.css}">
+  
+    <!-- Scripts -->
+    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/assets/js/owl-carousel.js}"></script>
+    <script th:src="@{/assets/js/animation.js}"></script>
+    <script th:src="@{/assets/js/imagesloaded.js}"></script>
+    <script th:src="@{/assets/js/custom.js}"></script>
+
+</head>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    header {
+        background-color: white;
+        padding: 30px;
+        text-align: center;
+        font-size: 35px;
+        color: rgb(68, 83, 216);
+    }
+
+    article {
+        float: left;
+        padding: 20px;
+        width: 70%;
+        background-color: white;
+        height: 60%;
+
+    }
+
+
+    section::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    footer {
+        background-color: #777;
+        padding: 10px;
+        text-align: center;
+        color: white;
+    }
+
+    @media (max-width: 600px) {
+
+        nav,
+        article {
+            width: 100%;
+            height: auto;
+        }
+    }
+</style>
+</head>
+
+<body>
+    <header>
+        <h2>VanHotel adminstration page</h2>
+    </header>
+
+    <section>
+        <article>
+
+            <p>List of User:</p>
+            <div>
+                <table>
+                    <style>
+                        table,
+                        td,
+                        th {
+                            border: 1px solid rgb(31, 27, 27);
+                            border-collapse: collapse;
+                        }
+                    </style>
+                    <tr style="background-color: rgb(11, 15, 15);">
+                        <th style="color: aliceblue;">UserID</th>
+                        <th style="color: aliceblue;">Email</th>
+                        <th style="color: aliceblue;">First Name</th>
+                        <th style="color: aliceblue;">Last Name</th>
+                        <th style="color:aliceblue;">Operation</th>
+                    </tr>
+                    <tr style="background-color: azure;" th:each="record: ${records}">
+                        <td th:text="${record.id}"></td>
+                        <td th:text="${record.email}"></td>
+                        <td th:text="${record.firstName}"></td>
+                        <td th:text="${record.lastName}"></td>
+                        <td>
+                            <!--<a th:href="@{/users/delete/} + ${record.id}"><p>Delete</p></a>-->
+                            <a th:href="@{/users/{id}(id=${record.id})}">
+                                <button>Details</button>
+                            </a>
+                            <a th:href="@{/users/delete/{id}(id=${record.id})}">
+                                <button>Delete</button>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                <a th:href="@{/home/user}">User Homepage</a>
+            </div>
+        </article>
+    </section>
+
+    <footer>
+        <a th:href="@{/logout}">logout</a>
+    </footer>
+
+</body>
+
+</html>
+

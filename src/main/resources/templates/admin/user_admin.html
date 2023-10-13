@@ -1,0 +1,103 @@
+<head>
+    <title>User Homepage Admin</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header {
+            background-color: white;
+            padding: 30px;
+            text-align: center;
+            font-size: 35px;
+            color: rgb(68, 83, 216);
+        }
+
+        nav {
+            float: left;
+            width: 30%;
+            height: 60%;
+            background: rgb(167, 223, 170);
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        article {
+            float: left;
+            padding: 20px;
+            width: 70%;
+            background-color: white;
+            height: 60%;
+        }
+
+
+        section::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        footer {
+            background-color: #777;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+
+            nav,
+            article {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h2>VanHotel Admin</h2>
+    </header>
+
+    <section>
+        <nav>
+            <ul>
+                <h3>Hotel category</h3>
+                <li><a th:href="@{/home/hotels(star='5')}">5 star</a></li><br>
+                <li><a th:href="@{/home/hotels(star='4')}">4 star</a></li><br>
+                <li><a th:href="@{/home/hotels(star='3')}">3 star</a></li><br>
+                <li><a th:href="@{/home/hotels(star='2')}">2 star</a></li><br>
+                <li><a th:href="@{/home/hotels(star='1')}">1 star</a></li><br>
+                <li><a th:href="@{/home/quarantine(quarantine='true')}">quarantine hotel</a></li><br>
+                <li><a th:href="@{/comments}">Comments List</a></li><br>
+                <li><a th:href="@{/admin/users}">Users List Page</a></li><br>
+                <li><a th:href="@{/admin/hotels}">Hotels List Page</a></li><br>
+                <li><a th:href="@{/}">Back to Frontpage</a></li><br>
+            </ul>
+        </nav>
+
+        <article>
+            <a href="https://imgbb.com/"><img
+                    src="https://i.ibb.co/ryNSx0Y/Interior-of-a-modern-luxury-hotel-double-bed-bedroom.jpg"
+                    alt="Interior-of-a-modern-luxury-hotel-double-bed-bedroom" border="0"></a>
+        </article>
+    </section>
+
+    <footer>
+        <a th:href="@{/logout}">logout</a>
+    </footer>
+
+</body>
+
+</html>

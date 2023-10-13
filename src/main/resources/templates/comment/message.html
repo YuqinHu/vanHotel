@@ -1,0 +1,40 @@
+<head>    
+    <title>VanHotel</title>
+    <!-- 
+      Reference HTML Template: https://templatemo.com/tm-564-plot-listing 
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" th:href="@{/assets/css/fontawesome.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/templatemo-plot-listing.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/animated.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/owl.css}">
+  
+    <!-- Scripts -->
+    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/assets/js/owl-carousel.js}"></script>
+    <script th:src="@{/assets/js/animation.js}"></script>
+    <script th:src="@{/assets/js/imagesloaded.js}"></script>
+    <script th:src="@{/assets/js/custom.js}"></script>
+
+</head>
+
+<body>
+    <div class="container text-center">
+        <h3 th:text="${message}"></h3>
+        <h3>Wellcome to VanHotel!</h3>
+        <h4><a th:href="@{/comments}">Go back</a></h4>
+    </div>
+</body>
+
+</html>
